@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicesList } from './Services/getserviceslist.services';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private servicesList: ServicesList){}
+  services: string[] = [];
+
   title = 'CentralizedLogging-UI';
+  public getServicesList(){
+    this.servicesList.GetServicesList().subscribe(success=>{
+      this.services = success as string[];
+    }, error=>{});
+
+  }
 }
+
+
