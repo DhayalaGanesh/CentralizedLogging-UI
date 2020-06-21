@@ -3,7 +3,6 @@ import { LogCardComponent } from './log-card/log-card.component'
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 import { ServicesList } from './Services/getserviceslist.services';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
@@ -17,7 +16,6 @@ import { ServicesLogs } from './Services/servicelogs.services';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     SelectDropDownModule,
     NgbModule
