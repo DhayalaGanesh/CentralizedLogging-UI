@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ServicesList } from './Services/getserviceslist.services';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { ServicesList } from './Services/getserviceslist.services';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SelectDropDownModule,
+    NgbModule
   ],
   providers: [
     ServicesList
