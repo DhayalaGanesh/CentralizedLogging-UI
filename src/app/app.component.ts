@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServicesList } from './Services/getserviceslist.services';
 
 @Component({
@@ -6,17 +6,29 @@ import { ServicesList } from './Services/getserviceslist.services';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private servicesList: ServicesList){}
-  services: string[] = [];
-
+  listOfServices: string[] = [];
+  listOfServicesDropDownConfig = {
+    search:true,
+    placeholder:'Select the services list',
+    noResultsFound: 'No results found!',
+    searchPlaceholder:'Search',
+    clearOnSelection: true
+  }
   title = 'CentralizedLogging-UI';
+  ngOnInit(){    
+    this.getServicesList();    
+  }
+
   public getServicesList(){
     this.servicesList.GetServicesList().subscribe(success=>{
-      this.services = success as string[];
+      this.listOfServices = success as string[];
     }, error=>{});
-
   }
+
+  
+  
 }
 
 

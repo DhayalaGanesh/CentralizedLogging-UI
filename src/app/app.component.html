@@ -1,3 +1,6 @@
-<button (click)="getServicesList()">GetServicesList</button>
+<h1 class="page-header"> Centralized Logging System</h1>
 
-<p>{{services}}</p>
+<ngx-select-dropdown [options]='listOfServices' [config]='listOfServicesDropDownConfig' []>
+</ngx-select-dropdown>
+
+  
