@@ -1,6 +1,16 @@
-<h1 class="page-header"> Centralized Logging System</h1>
+<h1 class="page-header pt-5"> Centralized Logging System</h1>
+<hr class="pb-5 mb-5">
+<div class="dropdown">
+  <ngx-select-dropdown [options]='listOfServices' [config]='listOfServicesDropDownConfig' (change)="serviceChanged($event)">
+  </ngx-select-dropdown>  
+</div>
 
-<ngx-select-dropdown [options]='listOfServices' [config]='listOfServicesDropDownConfig' []>
-</ngx-select-dropdown>
+<div style="height: 30px;">
+
+</div>
+
+<ng-template [ngIf]='logs != null'>
+  <app-logcard [logs]='logs'></app-logcard>
+</ng-template>
 
   
