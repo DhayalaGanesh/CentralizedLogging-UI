@@ -1,16 +1,19 @@
+import { AppComponent } from './app.component';
+import { LogCardComponent } from './log-card/log-card.component'
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ServicesList } from './Services/getserviceslist.services';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ServicesLogs } from './Services/servicelogs.services';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogCardComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     NgbModule
   ],
   providers: [
-    ServicesList
+    ServicesList,
+    ServicesLogs
   ],
   bootstrap: [AppComponent]
 })

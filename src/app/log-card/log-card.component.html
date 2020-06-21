@@ -1,0 +1,32 @@
+<div>
+    <div class="mb-2 d-flex">
+        <div class="col-6">
+            Error Messages
+        </div>
+        <div class="col-2">
+            Service Name
+        </div>
+        <div class="col-2">
+            Status
+        </div>
+        <div class="col-2">
+            DateAndTime
+        </div>
+    </div>
+    <div *ngFor='let log of logs' class="card shadow-lg mb-2">
+        <div class="card-body row">
+            <div class="col-6">
+                {{log.logMessages}}
+            </div>
+            <div class="col-2">
+                {{log.serviceName}}
+            </div>
+            <div class="col-2">
+                {{log.status}}
+            </div>
+            <div class="col-2">
+                {{log.dateAndTime}}
+            </div>
+        </div>
+    </div>
+</div>
