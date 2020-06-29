@@ -1,7 +1,11 @@
 <h1 class="page-header pt-5"> Centralized Logging System</h1>
-<hr class="pb-5 mb-5">
+<hr class="pb-4 mb-5">
+<div class="col-12 pb-2 d-flex cl-buttons">
+  <button type="button" (click)="open(addlogs)" class="btn btn-primary mr-2">Add Logs</button>
+  <button type="button" (click)="open(addlogs)" class="btn btn-primary">Disable/Enable Services</button>
+</div>
 <div class="dropdown">
-  <ngx-select-dropdown [options]='listOfServices' [config]='listOfServicesDropDownConfig' (change)="serviceChanged($event)">
+  <ngx-select-dropdown [options]='listOfServices' [multiple]='true' [config]='listOfServicesDropDownConfig' (change)="serviceChanged($event)">
   </ngx-select-dropdown>  
 </div>
 
@@ -11,6 +15,38 @@
 
 <ng-template [ngIf]='logs != null'>
   <app-logcard [logs]='logs'></app-logcard>
+</ng-template>
+
+<ng-template #addlogs let-d="dismiss" let-c="close">
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addLogsForm">
+      <div class="form-group">
+        <small>Log Message</small>
+        <input type="text" formControlName="LogMessage" class="col-12" ngbAutofocus maxlength="250" placeholder="Enter log message">
+      </div>
+      <div class="form-group">
+        <small>Service</small>
+        <ngx-select-dropdown formControlName="ServiceName" [options]='listOfServices' [config]='listOfServicesDropDownConfig'>
+        </ngx-select-dropdown>
+      </div>
+      <div class="form-group">
+        <small>Status</small>
+        <input formControlName="Status" type="text" class="col-12" maxlength="250" placeholder="Enter Status message">
+      </div>
+    </form>      
+  </div>
+  <div class="modal-footer">
+    <div class="loader d-none" id="addLogsLoader"></div>
+    <button type="button" class="btn btn-outline-dark" (click)="saveLogs($event)">
+        Save
+    </button>
+  </div>
 </ng-template>
 
   
